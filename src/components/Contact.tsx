@@ -16,12 +16,12 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section-ice py-28 relative overflow-hidden">
+    <section id="contact" className="section-ice py-16 sm:py-28 relative overflow-hidden">
       {/* Ambient blobs */}
       <div className="pointer-events-none absolute -right-24 -bottom-24 w-[500px] h-[500px] rounded-full bg-ice-200/30 dark:bg-ice-900/10 blur-3xl"/>
       <div className="pointer-events-none absolute -left-16 top-10 w-[350px] h-[350px] rounded-full bg-ice-100/20 dark:bg-ice-800/10 blur-3xl"/>
 
-      <div className="max-w-[1200px] mx-auto px-6 relative z-10">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
         <motion.p
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
           className="text-[11px] font-extrabold uppercase tracking-[.22em] text-ice-500 dark:text-ice-400 mb-4">
@@ -29,15 +29,15 @@ export default function Contact() {
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="text-3xl sm:text-[48px] font-extrabold tracking-tight text-gray-950 dark:text-white leading-[1.1] mb-16">
+          className="text-2xl min-[400px]:text-3xl sm:text-[48px] font-extrabold tracking-tight text-gray-950 dark:text-white leading-[1.1] mb-8 sm:mb-16">
           Let&apos;s Work Together
         </motion.h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
           {/* Left: context + channels */}
-          <div className="lg:col-span-5 flex flex-col gap-10">
-            <p className="text-[18px] text-slate-500 dark:text-slate-400 leading-relaxed">
+          <div className="lg:col-span-5 flex flex-col gap-8 sm:gap-10">
+            <p className="text-[16px] sm:text-[18px] text-slate-500 dark:text-slate-400 leading-relaxed">
               I&apos;m actively looking for <span className="text-gray-900 dark:text-white font-semibold">Java Backend and Full Stack roles</span> at product companies. Reach out and let&apos;s connect.
             </p>
 
@@ -49,13 +49,13 @@ export default function Contact() {
                 const Icon = ch.icon;
                 return (
                   <a key={ch.label} href={ch.href}
-                    className="flex items-center gap-4 group">
+                    className="flex items-center gap-4 group max-w-full overflow-hidden">
                     <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-[rgba(180,210,230,.5)] dark:border-slate-800 shadow-ice-sm text-slate-400 group-hover:text-ice-500 transition-colors shrink-0">
                       <Icon size={18} strokeWidth={1.75}/>
                     </div>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <p className="text-[10px] font-extrabold uppercase tracking-[.18em] text-slate-400 mb-0.5">{ch.label}</p>
-                      <p className="text-[15px] font-semibold text-gray-800 dark:text-slate-200 group-hover:text-ice-500 transition-colors">{ch.value}</p>
+                      <p className="text-[14px] sm:text-[15px] font-semibold text-gray-800 dark:text-slate-200 group-hover:text-ice-500 transition-colors truncate">{ch.value}</p>
                     </div>
                   </a>
                 );
@@ -63,7 +63,7 @@ export default function Contact() {
             </div>
 
             {/* Socials */}
-            <div className="flex items-center gap-4 pt-4 border-t border-[rgba(180,210,230,.4)] dark:border-slate-800">
+            <div className="flex items-center gap-3 sm:gap-4 pt-4 border-t border-[rgba(180,210,230,.4)] dark:border-slate-800">
               {[
                 { href: portfolioConfig.linkedin, icon: Linkedin, label: 'LinkedIn' },
                 { href: portfolioConfig.github,   icon: Github,   label: 'GitHub'   },
@@ -85,8 +85,8 @@ export default function Contact() {
           </div>
 
           {/* Right: form */}
-          <div className="lg:col-span-7">
-            <div className="bg-white dark:bg-slate-900 rounded-card border border-[rgba(180,210,230,.4)] dark:border-slate-800 shadow-ice-md p-8 sm:p-10">
+          <div className="lg:col-span-7 w-full">
+            <div className="bg-white dark:bg-slate-900 rounded-card border border-[rgba(180,210,230,.4)] dark:border-slate-800 shadow-ice-md p-6 sm:p-10">
               {status === 'sent' ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }}

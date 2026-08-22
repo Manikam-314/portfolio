@@ -109,10 +109,10 @@ export default function SystemDesign() {
   const sel = patterns.find(p => p.id === active)!;
 
   return (
-    <section id="architecture" className="section-ice py-28 relative overflow-hidden">
+    <section id="architecture" className="section-ice py-16 sm:py-28 relative overflow-hidden">
       <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-ice-200/25 to-transparent blur-3xl"/>
 
-      <div className="max-w-[1200px] mx-auto px-6 relative z-10">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
         <motion.p
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
           className="text-[11px] font-extrabold uppercase tracking-[.22em] text-ice-500 dark:text-ice-400 mb-4">
@@ -120,22 +120,22 @@ export default function SystemDesign() {
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="text-3xl sm:text-[48px] font-extrabold tracking-tight text-gray-950 dark:text-white leading-[1.1] mb-16">
+          className="text-2xl min-[400px]:text-3xl sm:text-[48px] font-extrabold tracking-tight text-gray-950 dark:text-white leading-[1.1] mb-8 sm:mb-16">
           System Design Patterns
         </motion.h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Pills */}
-          <div className="lg:col-span-4 flex flex-row lg:flex-col gap-2 flex-wrap">
+          <div className="lg:col-span-4 flex flex-row lg:flex-col gap-2.5 overflow-x-auto no-scrollbar pb-2 lg:pb-0">
             {patterns.map(p => (
               <button key={p.id} onClick={() => setActive(p.id)}
-                className={`text-left px-5 py-4 rounded-card border transition-all ${
+                className={`text-left px-4 sm:px-5 py-3.5 sm:py-4 rounded-card border transition-all shrink-0 min-w-[200px] lg:w-full ${
                   active === p.id
                     ? 'bg-white dark:bg-slate-900 border-[rgba(180,210,230,.6)] dark:border-slate-700 shadow-ice-md'
                     : 'bg-transparent border-transparent hover:border-[rgba(180,210,230,.4)] dark:hover:border-slate-800'
                 }`}>
                 <p className={`text-[14px] font-bold tracking-tight mb-0.5 ${active === p.id ? 'text-gray-950 dark:text-white' : 'text-slate-500 dark:text-slate-500'}`}>{p.title}</p>
-                <p className="text-[11px] text-slate-400">{p.subtitle}</p>
+                <p className="text-[11px] text-slate-400 truncate">{p.subtitle}</p>
               </button>
             ))}
           </div>
@@ -147,17 +147,21 @@ export default function SystemDesign() {
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.22 }}
                 className="bg-white dark:bg-slate-900 rounded-card border border-[rgba(180,210,230,.4)] dark:border-slate-800 shadow-ice-md overflow-hidden">
-                <div className="p-8 sm:p-10 border-b border-[rgba(180,210,230,.35)] dark:border-slate-800">
+                <div className="p-6 sm:p-10 border-b border-[rgba(180,210,230,.35)] dark:border-slate-800">
                   <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-gray-950 dark:text-white mb-3">{sel.title}</h3>
-                  <p className="text-[16px] text-slate-500 dark:text-slate-400 leading-relaxed mb-6">{sel.description}</p>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-ice-50 dark:bg-ice-900/20 border border-ice-200/60 dark:border-ice-700/30 text-ice-600 dark:text-ice-300 text-[12px] font-bold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-ice-500"/>
-                    {sel.outcome}
+                  <p className="text-[14px] sm:text-[16px] text-slate-500 dark:text-slate-400 leading-relaxed mb-6">{sel.description}</p>
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-ice-50 dark:bg-ice-900/20 border border-ice-200/60 dark:border-ice-700/30 text-ice-600 dark:text-ice-300 text-[11px] sm:text-[12px] font-bold max-w-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-ice-500 shrink-0"/>
+                    <span className="truncate">{sel.outcome}</span>
                   </div>
                 </div>
-                <div className="p-8 sm:p-10 bg-[#F2F8FD]/50 dark:bg-slate-800/30">
-                  <p className="text-[10px] font-extrabold uppercase tracking-[.2em] text-slate-400 mb-5">Flow Diagram</p>
-                  {sel.diagram}
+                <div className="p-6 sm:p-10 bg-[#F2F8FD]/50 dark:bg-slate-800/30">
+                  <p className="text-[10px] font-extrabold uppercase tracking-[.2em] text-slate-400 mb-4">Flow Diagram (Scrollable on Mobile)</p>
+                  <div className="w-full overflow-x-auto no-scrollbar pb-2">
+                    <div className="min-w-[450px] sm:min-w-0">
+                      {sel.diagram}
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             </AnimatePresence>

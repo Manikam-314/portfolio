@@ -345,15 +345,15 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="section-white py-28 relative overflow-hidden border-t border-[rgba(180,210,230,.35)]">
+    <section id="projects" className="section-white py-16 sm:py-28 relative overflow-hidden border-t border-[rgba(180,210,230,.35)]">
       {/* Dynamic light beams */}
       <div className="pointer-events-none absolute left-0 top-1/4 w-[600px] h-[600px] rounded-full bg-ice-100/30 dark:bg-ice-900/10 blur-3xl"/>
       <div className="pointer-events-none absolute right-0 top-2/3 w-[500px] h-[500px] rounded-full bg-ice-200/20 dark:bg-ice-900/5 blur-3xl"/>
 
-      <div className="max-w-[1250px] mx-auto px-6 relative z-10">
+      <div className="max-w-[1250px] mx-auto px-4 sm:px-6 relative z-10">
 
         {/* Section Header */}
-        <div className="mb-20 text-center sm:text-left">
+        <div className="mb-12 sm:mb-20 text-left">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -367,7 +367,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.05 }}
-            className="text-4xl sm:text-[54px] font-black tracking-tight text-gray-950 dark:text-white leading-[1.05]"
+            className="text-2xl min-[400px]:text-3xl sm:text-[54px] font-black tracking-tight text-gray-950 dark:text-white leading-[1.05]"
           >
             Engineering Showcase
           </motion.h2>
@@ -376,14 +376,14 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-slate-500 dark:text-slate-400 mt-4 max-w-xl text-[16px]"
+            className="text-slate-500 dark:text-slate-400 mt-3 sm:mt-4 max-w-xl text-[14px] sm:text-[16px]"
           >
             A deep dive into distributed architectures, concurrency-safe designs, system performance bottlenecks, and robust production engineering.
           </motion.p>
         </div>
 
         {/* Projects Stack */}
-        <div className="flex flex-col gap-16">
+        <div className="flex flex-col gap-10 sm:gap-16">
           {showcases.map((project) => {
             const IsometricImg = project.isometric;
             // Key tech stack highlights for preview tag row
@@ -396,14 +396,14 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.5 }}
-                className="w-full bg-white dark:bg-slate-900/60 rounded-3xl p-8 sm:p-10 border border-[rgba(180,210,230,.5)] dark:border-slate-800/80 shadow-ice-md hover:shadow-ice-lg transition-all"
+                className="w-full bg-white dark:bg-slate-900/60 rounded-2xl sm:rounded-3xl p-5 sm:p-10 border border-[rgba(180,210,230,.5)] dark:border-slate-800/80 shadow-ice-md hover:shadow-ice-lg transition-all"
               >
                 {/* ── Title block & category ── */}
-                <div className="flex flex-wrap items-center gap-3.5 mb-6">
-                  <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-gray-950 dark:text-white">
+                <div className="flex flex-wrap items-center gap-2.5 sm:gap-3.5 mb-4 sm:mb-6">
+                  <h3 className="text-xl sm:text-3xl font-extrabold tracking-tight text-gray-950 dark:text-white">
                     {project.title}
                   </h3>
-                  <span className="px-3.5 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-ice-100 dark:bg-ice-900/30 text-ice-500 dark:text-ice-400 border border-ice-200/50 dark:border-ice-700/20">
+                  <span className="px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest bg-ice-100 dark:bg-ice-900/30 text-ice-500 dark:text-ice-400 border border-ice-200/50 dark:border-ice-700/20">
                     {project.categoryBadge}
                   </span>
                 </div>

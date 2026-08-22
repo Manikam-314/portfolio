@@ -59,6 +59,14 @@ export default function Header() {
 
         {/* Actions */}
         <div className="hidden md:flex items-center gap-4">
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="p-2.5 rounded-full bg-[#F2F8FD] dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-ice-500 dark:hover:text-ice-400 transition-colors border border-[rgba(180,210,230,.5)] dark:border-slate-700"
+          >
+            {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+          </button>
+
           <a href="#contact"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-pill bg-ice-500 text-white text-[13px] font-semibold hover:bg-ice-600 transition-all shadow-ice-sm group">
             Contact Me
@@ -68,8 +76,16 @@ export default function Header() {
 
         {/* Mobile */}
         <div className="flex md:hidden items-center gap-2">
-          <button onClick={() => setMenuOpen(!menuOpen)} className="p-2 text-slate-500">
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="p-2 rounded-xl bg-[#F2F8FD] dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-[rgba(180,210,230,.5)] dark:border-slate-700"
+          >
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
+          <button onClick={() => setMenuOpen(!menuOpen)} className="p-2 text-slate-700 dark:text-slate-200" aria-label="Toggle menu">
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
@@ -80,19 +96,21 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: .2 }}
-            className="md:hidden bg-white/95 dark:bg-[#0D1117]/95 backdrop-blur-xl border-b border-[rgba(180,210,230,.3)] dark:border-[rgba(77,166,255,.08)] overflow-hidden">
-            <div className="px-6 py-5 flex flex-col gap-4">
+            transition={{ duration: .25, ease: 'easeInOut' }}
+            className="md:hidden bg-white/95 dark:bg-[#0D1117]/95 backdrop-blur-2xl border-b border-[rgba(180,210,230,.4)] dark:border-slate-800 shadow-ice-md overflow-hidden">
+            <div className="px-6 py-6 flex flex-col gap-4">
               {navItems.map(item => (
                 <a key={item.name} href={item.href} onClick={() => setMenuOpen(false)}
-                  className="text-[15px] font-medium text-slate-600 dark:text-slate-300">
+                  className="text-[16px] font-semibold text-slate-700 dark:text-slate-200 hover:text-ice-500 py-1 transition-colors">
                   {item.name}
                 </a>
               ))}
-              <a href="#contact" onClick={() => setMenuOpen(false)}
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-pill bg-ice-500 text-white text-[13px] font-semibold w-fit">
-                Contact Me <ArrowRight size={13} />
-              </a>
+              <div className="pt-2 border-t border-[rgba(180,210,230,.3)] dark:border-slate-800 flex items-center justify-between">
+                <a href="#contact" onClick={() => setMenuOpen(false)}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-pill bg-ice-500 text-white text-[14px] font-semibold w-full shadow-ice-sm">
+                  Contact Me <ArrowRight size={15} />
+                </a>
+              </div>
             </div>
           </motion.div>
         )}

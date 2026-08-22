@@ -16,26 +16,26 @@ const cats = [
 
 export default function TechStack() {
   return (
-    <section id="skills" className="section-ice py-28 relative overflow-hidden">
+    <section id="skills" className="section-ice py-16 sm:py-28 relative overflow-hidden">
       {/* Background glow */}
       <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-ice-200/30 to-transparent blur-3xl"/>
 
-      <div className="max-w-[1200px] mx-auto px-6 relative z-10">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
         <motion.p
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
           className="text-[11px] font-extrabold uppercase tracking-[.22em] text-ice-500 dark:text-ice-400 mb-4">
           02 · Engineering Toolkit
         </motion.p>
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="text-3xl sm:text-[48px] font-extrabold tracking-tight text-gray-950 dark:text-white leading-[1.1]">
+            className="text-2xl min-[400px]:text-3xl sm:text-[48px] font-extrabold tracking-tight text-gray-950 dark:text-white leading-[1.1]">
             My Production Stack
           </motion.h2>
-          <p className="text-[15px] text-slate-400 max-w-xs">Technologies I rely on to build resilient, scalable systems.</p>
+          <p className="text-[14px] sm:text-[15px] text-slate-400 max-w-xs">Technologies I rely on to build resilient, scalable systems.</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {cats.map((cat, i) => {
             const Icon = cat.icon;
             return (
@@ -45,8 +45,8 @@ export default function TechStack() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                className="bg-white dark:bg-slate-900 rounded-card p-6 border border-[rgba(180,210,230,.4)] dark:border-slate-800 shadow-ice-sm hover:shadow-ice-md transition-all cursor-default">
-                <div className={`self-start inline-flex p-2.5 rounded-xl mb-5 ${cat.bg}`}>
+                className="bg-white dark:bg-slate-900 rounded-card p-5 sm:p-6 border border-[rgba(180,210,230,.4)] dark:border-slate-800 shadow-ice-sm hover:shadow-ice-md transition-all cursor-default">
+                <div className={`self-start inline-flex p-2.5 rounded-xl mb-4 sm:mb-5 ${cat.bg}`}>
                   <Icon size={20} className={cat.color} strokeWidth={1.75}/>
                 </div>
                 <h3 className="text-[15px] font-bold text-gray-900 dark:text-white mb-3 tracking-tight">{cat.title}</h3>

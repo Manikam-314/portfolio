@@ -50,7 +50,7 @@ function Blobs() {
 /* ── 3D Motion Infinity Cube with Electric Thunder Lightning Effects ─────── */
 function ThunderInfinityCube() {
   return (
-    <div className="relative w-full aspect-square max-w-[360px] flex items-center justify-center select-none overflow-hidden mx-auto">
+    <div className="relative w-full aspect-square max-w-[280px] min-[400px]:max-w-[320px] sm:max-w-[360px] flex items-center justify-center select-none overflow-hidden mx-auto">
       
       {/* 1. Electric Thunder / Lightning SVG Background Aura */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 360 360" fill="none">
@@ -98,20 +98,20 @@ function ThunderInfinityCube() {
       </svg>
 
       {/* 2. 3D Rotating Infinity Cube / Triangular Prism Glass Frame */}
-      <div className="relative w-64 h-64 flex items-center justify-center">
+      <div className="relative w-48 h-48 min-[400px]:w-56 min-[400px]:h-56 sm:w-64 sm:h-64 flex items-center justify-center">
         
         {/* Outer Rotating 3D Infinity Ring */}
         <motion.div
           animate={{ rotateZ: 360, rotateY: [0, 180, 360], rotateX: [0, 90, 0] }}
           transition={{ duration: 16, repeat: Infinity, ease: 'linear' }}
-          className="absolute inset-0 rounded-[42px] border-2 border-ice-400/40 border-dashed shadow-[0_0_30px_rgba(10,132,255,0.3)]"
+          className="absolute inset-0 rounded-[32px] sm:rounded-[42px] border-2 border-ice-400/40 border-dashed shadow-[0_0_30px_rgba(10,132,255,0.3)]"
         />
 
         {/* Counter-Rotating Triangular Prism Glass Geometry */}
         <motion.div
           animate={{ rotateZ: -360, rotateX: [360, 0], scale: [0.92, 1.06, 0.92] }}
           transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute inset-5 rounded-3xl bg-gradient-to-br from-ice-500/10 via-white/40 to-transparent border border-ice-400/60 backdrop-blur-md shadow-ice-md flex items-center justify-center"
+          className="absolute inset-3 sm:inset-5 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-ice-500/10 via-white/40 to-transparent border border-ice-400/60 backdrop-blur-md shadow-ice-md flex items-center justify-center"
         >
           {/* Triangular Isometric Infinity Lines */}
           <svg className="w-full h-full p-4 opacity-80" viewBox="0 0 200 200" fill="none">
@@ -128,14 +128,14 @@ function ThunderInfinityCube() {
         <motion.div
           animate={{ y: [0, -8, 0], scale: [1, 1.06, 1] }}
           transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-          className="z-20 w-28 h-28 rounded-3xl bg-gradient-to-br from-ice-500 via-blue-600 to-indigo-700 p-0.5 shadow-[0_0_35px_rgba(10,132,255,0.6)] flex items-center justify-center cursor-pointer group"
+          className="z-20 w-24 h-24 sm:w-28 sm:h-28 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-ice-500 via-blue-600 to-indigo-700 p-0.5 shadow-[0_0_35px_rgba(10,132,255,0.6)] flex items-center justify-center cursor-pointer group"
         >
-          <div className="w-full h-full rounded-[22px] bg-white/95 backdrop-blur-md flex flex-col items-center justify-center p-3 text-center shadow-inner">
-            <div className="w-8 h-8 rounded-xl bg-ice-100 text-ice-600 flex items-center justify-center shadow-ice-sm mb-1.5 group-hover:scale-110 transition-transform">
-              <Sparkles size={16} className="text-ice-500" />
+          <div className="w-full h-full rounded-[18px] sm:rounded-[22px] bg-white/95 dark:bg-slate-900/95 backdrop-blur-md flex flex-col items-center justify-center p-2 sm:p-3 text-center shadow-inner">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-ice-100 dark:bg-ice-900/40 text-ice-600 flex items-center justify-center shadow-ice-sm mb-1 group-hover:scale-110 transition-transform">
+              <Sparkles size={15} className="text-ice-500" />
             </div>
-            <span className="text-[13px] font-extrabold text-gray-950 leading-tight uppercase tracking-wider">Fresher</span>
-            <span className="text-[9px] font-bold text-ice-500 uppercase tracking-widest mt-0.5">Software Dev</span>
+            <span className="text-[11px] sm:text-[13px] font-extrabold text-gray-950 dark:text-white leading-tight uppercase tracking-wider">Fresher</span>
+            <span className="text-[8px] sm:text-[9px] font-bold text-ice-500 uppercase tracking-widest mt-0.5">Software Dev</span>
           </div>
         </motion.div>
 
@@ -146,47 +146,47 @@ function ThunderInfinityCube() {
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-28 pb-20 mesh-bg overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-24 sm:pt-28 pb-16 sm:pb-20 mesh-bg overflow-hidden">
       <Blobs />
 
-      <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full relative z-10">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center w-full relative z-10">
 
         {/* ── Left ────────────────────────────────── */}
-        <div className="lg:col-span-7 flex flex-col items-start">
+        <div className="lg:col-span-7 flex flex-col items-start text-left">
 
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-pill bg-ice-100/90 border border-ice-200/80 text-ice-600 text-[12px] font-bold uppercase tracking-widest mb-8 shadow-ice-sm">
-            <Sparkles size={13} className="text-ice-500" />
-            Open to Software Developer & Full Stack Roles
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-1.5 rounded-pill bg-ice-100/90 dark:bg-ice-950/40 border border-ice-200/80 dark:border-ice-800/40 text-ice-600 dark:text-ice-400 text-[10px] sm:text-[12px] font-bold uppercase tracking-wider mb-6 sm:mb-8 shadow-ice-sm max-w-full">
+            <Sparkles size={13} className="text-ice-500 shrink-0" />
+            <span className="truncate">Open to Software Developer & Full Stack Roles</span>
           </motion.div>
 
           {/* Name */}
           <motion.h1
             initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.1 }}
-            className="text-[42px] sm:text-[62px] lg:text-[72px] font-extrabold tracking-tight text-gray-950 leading-[1.04] mb-6">
+            className="text-[34px] min-[400px]:text-[42px] sm:text-[62px] lg:text-[72px] font-extrabold tracking-tight text-gray-950 dark:text-white leading-[1.05] mb-4 sm:mb-6">
             {portfolioConfig.name}
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-[19px] sm:text-[21px] text-slate-500 leading-relaxed max-w-[540px] mb-10">
+            className="text-[16px] sm:text-[21px] text-slate-500 dark:text-slate-400 leading-relaxed max-w-[540px] mb-8 sm:mb-10">
             I architect highly concurrent Java backend systems — microservices, event-driven pipelines, and distributed transactions — built to operate at production scale.
           </motion.p>
 
           {/* CTA buttons */}
           <motion.div
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-wrap gap-4 mb-12">
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto mb-10 sm:mb-12">
             <a href={portfolioConfig.resumeUrl} download="MANIKAVASAGAM_S_Resume.pdf" target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-pill bg-ice-500 text-white font-semibold text-[15px] hover:bg-ice-600 active:scale-95 transition-all shadow-ice-md hover:shadow-ice-lg group">
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-pill bg-ice-500 text-white font-semibold text-[15px] hover:bg-ice-600 active:scale-95 transition-all shadow-ice-md hover:shadow-ice-lg group w-full sm:w-auto">
               <FileText size={16} />
               Download Resume
             </a>
             <a href="#projects"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-pill bg-white border border-[rgba(180,210,230,.7)] text-gray-800 font-semibold text-[15px] hover:border-ice-400 hover:shadow-ice-sm transition-all shadow-ice-sm group">
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-pill bg-white dark:bg-slate-900 border border-[rgba(180,210,230,.7)] dark:border-slate-800 text-gray-800 dark:text-slate-200 font-semibold text-[15px] hover:border-ice-400 hover:shadow-ice-sm transition-all shadow-ice-sm group w-full sm:w-auto">
               <Layers size={16} className="text-ice-500" />
               View Projects
             </a>
@@ -195,11 +195,11 @@ export default function Hero() {
           {/* Socials */}
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.45 }}
-            className="flex items-center gap-5 text-slate-400">
+            className="flex items-center gap-6 text-slate-400 dark:text-slate-400">
             <a href={portfolioConfig.github} target="_blank" rel="noopener noreferrer"
-              className="hover:text-ice-500 transition-colors"><Github size={19} /></a>
+              className="hover:text-ice-500 transition-colors"><Github size={20} /></a>
             <a href={portfolioConfig.linkedin} target="_blank" rel="noopener noreferrer"
-              className="hover:text-ice-500 transition-colors"><Linkedin size={19} /></a>
+              className="hover:text-ice-500 transition-colors"><Linkedin size={20} /></a>
             <a href={portfolioConfig.leetcode} target="_blank" rel="noopener noreferrer"
               className="text-[12px] font-bold tracking-widest uppercase hover:text-ice-500 transition-colors">LeetCode</a>
           </motion.div>
@@ -209,41 +209,41 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="lg:col-span-5 flex flex-col gap-6 relative items-center justify-center">
+          className="lg:col-span-5 flex flex-col gap-6 relative items-center justify-center w-full">
 
           {/* 3D Motion Rotating Infinity Cube / Triangle Prism with Thunder */}
           <ThunderInfinityCube />
 
           {/* Integrated Watery Glass Metrics Ribbon */}
-          <div className="grid grid-cols-3 gap-3 w-full">
+          <div className="grid grid-cols-3 gap-2 sm:gap-3 w-full">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="bg-white/90 backdrop-blur-xl rounded-2xl p-4 border border-[rgba(180,210,230,.6)] shadow-ice-sm flex flex-col items-center justify-center hover:border-ice-400 hover:shadow-ice-md transition-all group"
+              className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-2xl p-3 sm:p-4 border border-[rgba(180,210,230,.6)] dark:border-slate-800 shadow-ice-sm flex flex-col items-center justify-center hover:border-ice-400 hover:shadow-ice-md transition-all group"
             >
-              <span className="text-xl sm:text-2xl font-black text-ice-500 tracking-tight group-hover:scale-105 transition-transform">200+</span>
-              <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider text-center mt-0.5">LeetCode Solved</span>
+              <span className="text-lg sm:text-2xl font-black text-ice-500 tracking-tight group-hover:scale-105 transition-transform">200+</span>
+              <span className="text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-center mt-0.5">LeetCode Solved</span>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="bg-white/90 backdrop-blur-xl rounded-2xl p-4 border border-[rgba(180,210,230,.6)] shadow-ice-sm flex flex-col items-center justify-center hover:border-ice-400 hover:shadow-ice-md transition-all group"
+              className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-2xl p-3 sm:p-4 border border-[rgba(180,210,230,.6)] dark:border-slate-800 shadow-ice-sm flex flex-col items-center justify-center hover:border-ice-400 hover:shadow-ice-md transition-all group"
             >
-              <span className="text-xl sm:text-2xl font-black text-ice-500 tracking-tight group-hover:scale-105 transition-transform">95%</span>
-              <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider text-center mt-0.5">Cache Hit Rate</span>
+              <span className="text-lg sm:text-2xl font-black text-ice-500 tracking-tight group-hover:scale-105 transition-transform">95%</span>
+              <span className="text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-center mt-0.5">Cache Hit Rate</span>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
-              className="bg-white/90 backdrop-blur-xl rounded-2xl p-4 border border-[rgba(180,210,230,.6)] shadow-ice-sm flex flex-col items-center justify-center hover:border-ice-400 hover:shadow-ice-md transition-all group"
+              className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-2xl p-3 sm:p-4 border border-[rgba(180,210,230,.6)] dark:border-slate-800 shadow-ice-sm flex flex-col items-center justify-center hover:border-ice-400 hover:shadow-ice-md transition-all group"
             >
-              <span className="text-xl sm:text-2xl font-black text-ice-500 tracking-tight group-hover:scale-105 transition-transform">5×</span>
-              <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider text-center mt-0.5">Throughput Boost</span>
+              <span className="text-lg sm:text-2xl font-black text-ice-500 tracking-tight group-hover:scale-105 transition-transform">5×</span>
+              <span className="text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-center mt-0.5">Throughput Boost</span>
             </motion.div>
           </div>
 

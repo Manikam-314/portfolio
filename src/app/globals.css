@@ -33,7 +33,9 @@
     --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
   }
 
-  html {
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -47,10 +49,14 @@
 }
 
 /* ── Scrollbar ─────────────────────────────── */
-::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(77,166,255,.25); border-radius: 999px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(77,166,255,.45); }
+
+/* Hide scrollbar utility for mobile tab bars */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
 /* ── Premium mesh blob utility ─────────────── */
 .mesh-bg {
