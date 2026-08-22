@@ -24,74 +24,78 @@ export default function About() {
       {/* Background glow */}
       <div className="pointer-events-none absolute right-0 top-10 w-[500px] h-[500px] rounded-full bg-ice-100/40 dark:bg-ice-900/10 blur-3xl" />
 
-      <div className="max-w-[960px] mx-auto px-4 sm:px-6 relative z-10">
-        {/* Label */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-[11px] font-extrabold uppercase tracking-[.25em] text-ice-500 dark:text-ice-400 mb-4"
-        >
-          01 · ABOUT
-        </motion.p>
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
-        {/* Headline matching image 2 style */}
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-3xl sm:text-[52px] font-extrabold tracking-tight text-gray-950 dark:text-white leading-[1.1] mb-8"
-        >
-          Building scalable apps with{' '}
-          <span className="font-serif italic font-normal text-ice-500 dark:text-ice-400">
-            Java &amp; Full Stack
-          </span>
-        </motion.h2>
+          {/* ── Left Column: Label + Headline + Intro ── */}
+          <div className="lg:col-span-5 flex flex-col gap-6 lg:sticky lg:top-28">
+            {/* Label */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-[11px] font-extrabold uppercase tracking-[.25em] text-ice-500 dark:text-ice-400"
+            >
+              01 · ABOUT
+            </motion.p>
 
-        {/* Intro Paragraphs */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-col gap-4 text-[16px] sm:text-[18px] text-slate-600 dark:text-slate-300 leading-relaxed mb-10"
-        >
-          <p>
-            I&apos;m a passionate{' '}
-            <span className="text-gray-950 dark:text-white font-semibold">
-              Java Backend &amp; Full Stack Engineer
-            </span>{' '}
-            focused on building modern, scalable, and resilient software applications using Java, Spring Boot, Microservices, React, Next.js, and Cloud technologies.
-          </p>
-          <p>
-            As a fresher graduating in 2026, I continuously explore new technologies, enterprise architectural patterns, and apply my skills through real-world, production-grade projects.
-          </p>
-        </motion.div>
-
-        {/* Thin Divider Line */}
-        <div className="w-full border-t border-[rgba(180,210,230,.4)] dark:border-slate-800/80 mb-8 sm:mb-10" />
-
-        {/* Clean Capability Arrow List matching Image 2 */}
-        <div className="flex flex-col">
-          {capabilities.map((cap, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 12 }}
+            {/* Headline */}
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: idx * 0.03 }}
-              className="group py-4 sm:py-4.5 border-b border-[rgba(180,210,230,.3)] dark:border-slate-800/60 flex items-center gap-4 hover:pl-2 transition-all duration-200"
+              transition={{ duration: 0.5 }}
+              className="text-3xl sm:text-[44px] lg:text-[48px] font-extrabold tracking-tight text-gray-950 dark:text-white leading-[1.1]"
             >
-              <ArrowRight
-                size={16}
-                className="text-slate-400 group-hover:text-ice-500 dark:group-hover:text-ice-400 transition-colors shrink-0"
-              />
-              <span className="text-[14px] sm:text-[16px] font-medium text-slate-700 dark:text-slate-300 group-hover:text-gray-950 dark:group-hover:text-white transition-colors">
-                {cap}
+              Building scalable apps with{' '}
+              <span className="font-serif italic font-normal text-ice-500 dark:text-ice-400">
+                Java &amp; Full Stack
               </span>
+            </motion.h2>
+
+            {/* Intro Paragraphs */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex flex-col gap-4 text-[15px] sm:text-[17px] text-slate-600 dark:text-slate-300 leading-relaxed"
+            >
+              <p>
+                I&apos;m a passionate{' '}
+                <span className="text-gray-950 dark:text-white font-semibold">
+                  Java Backend &amp; Full Stack Engineer
+                </span>{' '}
+                focused on building modern, scalable, and resilient software applications using Java, Spring Boot, Microservices, React, Next.js, and Cloud technologies.
+              </p>
+              <p>
+                As a fresher graduating in 2026, I continuously explore new technologies, enterprise architectural patterns, and apply my skills through real-world, production-grade projects.
+              </p>
             </motion.div>
-          ))}
+          </div>
+
+          {/* ── Right Column: Capability Arrow List ── */}
+          <div className="lg:col-span-7 flex flex-col border-t border-[rgba(180,210,230,.4)] dark:border-slate-800/80 lg:border-t-0">
+            {capabilities.map((cap, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: idx * 0.03 }}
+                className="group py-4 sm:py-[18px] border-b border-[rgba(180,210,230,.3)] dark:border-slate-800/60 flex items-center gap-4 hover:pl-2 transition-all duration-200"
+              >
+                <ArrowRight
+                  size={16}
+                  className="text-slate-400 group-hover:text-ice-500 dark:group-hover:text-ice-400 transition-colors shrink-0"
+                />
+                <span className="text-[14px] sm:text-[15px] font-medium text-slate-700 dark:text-slate-300 group-hover:text-gray-950 dark:group-hover:text-white transition-colors">
+                  {cap}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>
