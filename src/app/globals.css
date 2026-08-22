@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #F8FCFF;
+    --surface: #FFFFFF;
+    --surface-2: #F2F8FD;
+    --accent: #4DA6FF;
+    --primary: #0A84FF;
+    --ice: #DDF4FF;
+    --text: #111827;
+    --muted: #64748B;
+    --border: rgba(180, 210, 230, 0.35);
+    --shadow-sm: 0 2px 12px rgba(10, 132, 255, 0.04);
+    --shadow-md: 0 8px 32px rgba(10, 132, 255, 0.07);
+    --shadow-lg: 0 20px 60px rgba(10, 132, 255, 0.1);
+  }
+
+  .dark {
+    --bg: #06080F;
+    --surface: #0D1117;
+    --surface-2: #111827;
+    --accent: #4DA6FF;
+    --primary: #3B9EFF;
+    --ice: #0D2340;
+    --text: #F0F9FF;
+    --muted: #94A3B8;
+    --border: rgba(77, 166, 255, 0.12);
+    --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-feature-settings: "cv02","cv03","cv04","cv11";
+  }
+}
+
+/* ── Scrollbar ─────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(77,166,255,.25); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(77,166,255,.45); }
+
+/* ── Premium mesh blob utility ─────────────── */
+.mesh-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(77,166,255,.13) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(10,132,255,.08) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 90% 70%, rgba(221,244,255,.6) 0%, transparent 60%),
+    #F8FCFF;
+}
+.dark .mesh-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(77,166,255,.06) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(10,132,255,.04) 0%, transparent 60%),
+    #06080F;
+}
+
+/* ── Section alternating ────────────────────── */
+.section-white  { background-color: #FFFFFF; }
+.dark .section-white  { background-color: #0D1117; }
+.section-ice    { background-color: #F2F8FD; }
+.dark .section-ice    { background-color: #111827; }
+
+/* ── Glass card ─────────────────────────────── */
+.glass {
+  background: rgba(255,255,255,.7);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid rgba(180,210,230,.4);
+}
+.dark .glass {
+  background: rgba(13,17,23,.6);
+  border: 1px solid rgba(77,166,255,.1);
+}
+
+/* ── SVG Path Dash Animations ───────────────── */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-dash-flow {
+  animation: dash 3s linear infinite;
+}
+
