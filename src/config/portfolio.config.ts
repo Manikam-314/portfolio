@@ -146,6 +146,23 @@ export const portfolioConfig: PortfolioConfig = {
   ],
   projects: [
     {
+      title: "AgenticGPT — Multimodal Autonomous AI Platform",
+      description: "Enterprise-grade stateful AI chat platform featuring long-term memory extraction, multimodal vision analysis, and adaptive RAG search pipelines.",
+      longDescription: "Built a full-stack, autonomous AI chat platform powered by Python, FastAPI, and LangGraph DAG engine. Features asynchronous background memory extraction (SQLite + FAISS), local Ollama & Moondream Vision AI integration, adaptive document RAG search, and real-time Server-Sent Events (SSE) streaming.",
+      techStack: ["Python", "FastAPI", "LangChain", "LangGraph", "React", "TypeScript", "Tailwind CSS", "FAISS", "SQLite", "Ollama", "Moondream Vision", "Redis"],
+      architectureHighlights: [
+        "Stateful LangGraph Agent Engine: Directed Acyclic Graph (DAG) state machine orchestrating autonomous tool selection, multi-step reasoning execution branches, and non-blocking SSE streaming.",
+        "Asynchronous Long-Term Memory System: Background daemon worker extracts user identity, tech stack, and preferences into a dual-layer SQLite + FAISS vector memory with sub-0.5s recall.",
+        "Multimodal Vision & Adaptive RAG: Local Moondream Vision (1.8B) for real-time image analysis (drag-and-drop & Ctrl+V paste) and adaptive PDF vector retrieval (k=15 for summaries vs. k=5 for Q&A)."
+      ],
+      performanceImprovements: [
+        "Achieved sub-0.5s long-term memory retrieval latency across multi-modal user interactions using dual-layer SQLite fact indexing and FAISS vector similarity scoring.",
+        "Eliminated response blocking with non-blocking Server-Sent Events (SSE) streaming while asynchronous background threads update memory indices and digest context."
+      ],
+      githubUrl: "https://github.com/manikiphone14email",
+      liveDemoUrl: "#"
+    },
+    {
       title: "Distributed Fintech Wallet System",
       description: "Distributed wallet and transaction platform using Java, Spring Boot, Microservices, Kafka, Redis, and PostgreSQL.",
       longDescription: "Built a distributed wallet and transaction platform using Java, Spring Boot, and Microservices, developing secure REST APIs for wallet management, payments, and transaction processing with PostgreSQL, Redis, and Kafka.",

@@ -124,6 +124,43 @@ function MovieSharkIsometric() {
   );
 }
 
+function AgenticGPTIsometric() {
+  return (
+    <svg className="w-full max-w-[320px] aspect-[4/3] drop-shadow-ice-md" viewBox="0 0 200 150" fill="none">
+      <path d="M100 20 L180 60 L100 100 L20 60 Z" fill="rgba(77,166,255,0.03)" stroke="rgba(180,210,230,0.2)" strokeWidth="0.5"/>
+
+      {/* Agentic DAG Central Core Stack */}
+      <g transform="translate(75, 30)">
+        <path d="M25 0 L50 12.5 L25 25 L0 12.5 Z" fill="#DDF4FF" stroke="#0A84FF" strokeWidth="1"/>
+        <path d="M0 12.5 L0 25 L25 37.5 L25 25 Z" fill="#B3E3FF" stroke="#0A84FF" strokeWidth="1"/>
+        <path d="M25 25 L25 37.5 L50 25 L50 12.5 Z" fill="#80CCFF" stroke="#0A84FF" strokeWidth="1"/>
+        <circle cx="25" cy="12.5" r="5" fill="#0A84FF"/>
+      </g>
+
+      {/* Memory FAISS/SQLite Vector Node (Left) */}
+      <g transform="translate(25, 55)">
+        <path d="M20 0 L40 10 L20 20 L0 10 Z" fill="#FFFFFF" stroke="#4DA6FF" strokeWidth="1"/>
+        <path d="M0 10 L0 22 L20 32 L20 20 Z" fill="#F2F8FD" stroke="#4DA6FF" strokeWidth="1"/>
+        <path d="M20 20 L20 32 L40 22 L40 10 Z" fill="#DDF4FF" stroke="#4DA6FF" strokeWidth="1"/>
+        <circle cx="20" cy="10" r="3" fill="#10B981"/>
+      </g>
+
+      {/* Vision & Multimodal Node (Right) */}
+      <g transform="translate(135, 55)">
+        <path d="M20 0 L40 10 L20 20 L0 10 Z" fill="#FFFFFF" stroke="#8B5CF6" strokeWidth="1"/>
+        <path d="M0 10 L0 22 L20 32 L20 20 Z" fill="#F5F3FF" stroke="#8B5CF6" strokeWidth="1"/>
+        <path d="M20 20 L20 32 L40 22 L40 10 Z" fill="#DDD6FE" stroke="#8B5CF6" strokeWidth="1"/>
+        <circle cx="20" cy="10" r="3" fill="#8B5CF6"/>
+      </g>
+
+      {/* SSE Streaming Flow Line */}
+      <path d="M45 70 Q100 95 155 70" fill="none" stroke="#0A84FF" strokeWidth="1.2" strokeDasharray="3 3"/>
+      <path d="M100 45 L45 65" fill="none" stroke="#10B981" strokeWidth="1" strokeDasharray="2 2"/>
+      <path d="M100 45 L155 65" fill="none" stroke="#8B5CF6" strokeWidth="1" strokeDasharray="2 2"/>
+    </svg>
+  );
+}
+
 /* ── DETAILED DATA STRUCTURES FOR ENTERPRISE SHOWCASE ── */
 
 interface KeyFeature {
@@ -161,6 +198,52 @@ interface ShowcaseProject {
 }
 
 const showcases: ShowcaseProject[] = [
+  {
+    id: 'agenticgpt',
+    title: 'AgenticGPT — Multimodal Autonomous AI Platform',
+    categoryBadge: 'AI PLATFORM / AGENTIC RAG',
+    heroDescription: 'An enterprise-grade, stateful AI chat platform featuring long-term memory extraction, multimodal vision analysis, and adaptive RAG search pipelines. Powered by a custom LangGraph DAG engine for autonomous tool execution and real-time Server-Sent Events (SSE) response streaming, it achieves sub-0.5s memory retrieval latency across multi-modal user interactions.',
+    techStack: [
+      { category: 'Backend', items: ['Python 3.10', 'FastAPI', 'LangGraph', 'LangChain', 'SQLAlchemy', 'Pydantic', 'Uvicorn'] },
+      { category: 'AI & Vision', items: ['Ollama (qwen2.5:3b)', 'Moondream Vision (1.8B)', 'nomic-embed-text'] },
+      { category: 'Database & Vector', items: ['SQLite', 'FAISS Vector Store', 'Redis Cache'] },
+      { category: 'Frontend', items: ['React', 'TypeScript', 'Tailwind CSS', 'Zustand', 'Lucide Icons'] }
+    ],
+    features: [
+      { icon: Cpu, title: '🧠 Long-Term Memory Engine', explanation: 'Asynchronous daemon worker extracts user facts (identity, tech_stack, preferences) in background threads without blocking chat response loops. Injects recalled facts into system prompts with dual-layer SQLite + FAISS indexing.' },
+      { icon: Video, title: '👁️ Multimodal Vision Pipeline', explanation: 'Real-time image recognition pipeline built with local moondream vision LLM. Supports drag-and-drop file attachments, multi-format images (.png, .jpg, .webp), and zero-latency clipboard image pasting (Ctrl+V).' },
+      { icon: Search, title: '🔍 Adaptive RAG Search Engine', explanation: 'Dynamic vector chunk retrieval scaling (k=15 broad chunks for document breakdowns/summaries vs. k=5 pinpoint chunks for precision questions) backed by FAISS vector similarity scoring.' },
+      { icon: Zap, title: '⚡ Stateful LangGraph Orchestration', explanation: 'Directed Acyclic Graph (DAG) state machine handling tool selection, execution branches, non-blocking SSE streaming, and background task lifecycle management with safe unicode/ASCII console isolation.' }
+    ],
+    highlights: [
+      { title: 'LangGraph DAG State Machine', explanation: 'Handles tool selection, execution branches, and background task lifecycle management.' },
+      { title: 'Asynchronous Memory Daemon', explanation: 'Extracts user facts without blocking response loops, injecting facts into prompts with SQLite + FAISS indexing.' },
+      { title: 'Multimodal Moondream Vision', explanation: 'Real-time vision LLM with drag-and-drop & zero-latency clipboard image pasting (Ctrl+V).' },
+      { title: 'Adaptive RAG Vector Scaling', explanation: 'Scales vector chunks (k=15 for summaries vs. k=5 for precision Q&A) backed by FAISS.' }
+    ],
+    sequenceSteps: [
+      { from: 'User UI', to: 'React Frontend', action: 'Input / Image Upload', explanation: 'React frontend captures text, PDFs, or pasted images (Ctrl+V).' },
+      { from: 'React Frontend', to: 'FastAPI Backend', action: 'SSE Stream Request', explanation: 'Initializes non-blocking Server-Sent Events HTTP connection.' },
+      { from: 'FastAPI', to: 'MemoryService (FAISS+SQLite)', action: 'Memory Retrieval', explanation: 'MemoryService performs vector search across FAISS + SQLite for user identity facts.' },
+      { from: 'FastAPI / LangGraph', to: 'Ollama / Vision AI', action: 'LangGraph State Routing', explanation: 'LangGraph DAG evaluates input, executes tools, or routes to Vision AI.' },
+      { from: 'LangGraph DAG', to: 'Background Daemon', action: 'Async Fact Extraction', explanation: 'Extracts user facts in background threads, updating SQLite + FAISS indices.' },
+      { from: 'FastAPI Backend', to: 'React UI', action: 'Stream & Persist', explanation: 'Fast SSE streams response back to client with sub-0.5s memory recall.' }
+    ],
+    metrics: [
+      { value: 'sub-0.5s', label: 'Memory Retrieval Latency' },
+      { value: 'k=15 / k=5', label: 'Adaptive Vector Retrieval' },
+      { value: '1.8B', label: 'Moondream Vision Model' },
+      { value: '100%', label: 'Non-Blocking SSE Streaming' }
+    ],
+    challenges: [
+      'Orchestrated stateful multi-step reasoning using custom LangGraph DAG state machine.',
+      'Designed non-blocking background daemon thread for extracting long-term user facts into FAISS + SQLite.',
+      'Implemented zero-latency clipboard image pasting (Ctrl+V) and drag-and-drop multimodal vision streaming.'
+    ],
+    isometric: AgenticGPTIsometric,
+    githubUrl: 'https://github.com/manikiphone14email',
+    liveDemoUrl: '#'
+  },
   {
     id: 'wallet',
     title: 'Distributed Fintech Wallet System',
@@ -307,6 +390,7 @@ export default function Projects() {
   const [selectedArchProject, setSelectedArchProject] = useState<ShowcaseProject | null>(null);
   const [expandedFlow, setExpandedFlow] = useState<string | null>(null);
   const [activeFlowPath, setActiveFlowPath] = useState<Record<string, string>>({
+    agenticgpt: 'memory',
     wallet: 'saga',
     collabrix: 'stt',
     movieshark: 'lock'
@@ -562,6 +646,25 @@ export default function Projects() {
 
                   {/* Flow path toggle buttons */}
                   <div className="flex items-center gap-2 flex-wrap">
+                    {selectedArchProject.id === 'agenticgpt' && (
+                      <>
+                        {[
+                          { id: 'memory', label: 'Async Memory Flow' },
+                          { id: 'dag', label: 'LangGraph DAG Routing' },
+                          { id: 'vision', label: 'Multimodal Vision' },
+                          { id: 'stream', label: 'SSE Stream & Persist' }
+                        ].map(tab => (
+                          <button key={tab.id} onClick={() => handleFlowTab('agenticgpt', tab.id)}
+                            className={`px-3.5 py-1.5 rounded-full text-[12px] font-bold tracking-tight border transition-all cursor-pointer ${
+                              activeFlowPath.agenticgpt === tab.id
+                                ? 'bg-ice-500 text-white border-ice-500'
+                                : 'bg-white dark:bg-slate-800 text-slate-500 border-[rgba(180,210,230,.5)] dark:border-slate-700 hover:border-ice-400'
+                            }`}>
+                            {tab.label}
+                          </button>
+                        ))}
+                      </>
+                    )}
                     {selectedArchProject.id === 'wallet' && (
                       <>
                         {[
@@ -622,6 +725,46 @@ export default function Projects() {
                 {/* SVG DIAGRAM DRAWING NODES */}
                 <div className="relative w-full overflow-x-auto min-h-[300px] flex items-center justify-center py-4 bg-[#F2F8FD]/30 dark:bg-slate-900/10 rounded-2xl border border-[rgba(180,210,230,.25)] dark:border-slate-800">
                   
+                  {/* AgenticGPT Diagram */}
+                  {selectedArchProject.id === 'agenticgpt' && (
+                    <svg className="w-[780px] h-[340px]" viewBox="0 0 780 340" fill="none">
+                      <path d="M 90 90 L 190 90 M 290 90 L 390 90 M 490 90 L 590 90 M 640 110 L 640 180 M 590 200 L 490 200 M 390 200 L 290 200"
+                        fill="none" stroke={activeFlowPath.agenticgpt === 'dag' ? '#0A84FF' : '#E2E8F0'} strokeWidth={activeFlowPath.agenticgpt === 'dag' ? 2 : 1}
+                        strokeDasharray={activeFlowPath.agenticgpt === 'dag' ? '6 4' : 'none'} className={activeFlowPath.agenticgpt === 'dag' ? 'animate-[dash_12s_linear_infinite]' : ''}/>
+
+                      <path d="M 240 110 L 240 180 M 240 200 L 190 200 L 190 110"
+                        fill="none" stroke={activeFlowPath.agenticgpt === 'memory' ? '#10B981' : '#E2E8F0'} strokeWidth={activeFlowPath.agenticgpt === 'memory' ? 2 : 0.8}
+                        strokeDasharray={activeFlowPath.agenticgpt === 'memory' ? '6 4' : 'none'} className={activeFlowPath.agenticgpt === 'memory' ? 'animate-[dash_12s_linear_infinite]' : ''}/>
+
+                      <path d="M 440 110 L 440 180 M 440 200 L 390 200 L 290 200"
+                        fill="none" stroke={activeFlowPath.agenticgpt === 'vision' ? '#8B5CF6' : '#E2E8F0'} strokeWidth={activeFlowPath.agenticgpt === 'vision' ? 2 : 0.8}
+                        strokeDasharray={activeFlowPath.agenticgpt === 'vision' ? '6 4' : 'none'} className={activeFlowPath.agenticgpt === 'vision' ? 'animate-[dash_12s_linear_infinite]' : ''}/>
+
+                      <path d="M 490 90 L 590 90 M 640 110 L 640 250 M 590 270 L 120 270 L 120 110"
+                        fill="none" stroke={activeFlowPath.agenticgpt === 'stream' ? '#F59E0B' : '#E2E8F0'} strokeWidth={activeFlowPath.agenticgpt === 'stream' ? 2 : 0.8}
+                        strokeDasharray={activeFlowPath.agenticgpt === 'stream' ? '6 4' : 'none'} className={activeFlowPath.agenticgpt === 'stream' ? 'animate-[dash_12s_linear_infinite]' : ''}/>
+
+                      {[
+                        { id: 'react_ui', label: 'React UI Client', x: 20, y: 70, w: 110, h: 40, desc: 'Text/PDF/Ctrl+V' },
+                        { id: 'fastapi', label: 'FastAPI Backend', x: 170, y: 70, w: 110, h: 40, desc: 'SSE Endpoint' },
+                        { id: 'memory_svc', label: 'MemoryService', x: 170, y: 180, w: 110, h: 40, desc: 'FAISS + SQLite' },
+                        { id: 'langgraph', label: 'LangGraph DAG', x: 370, y: 70, w: 120, h: 40, desc: 'State Machine' },
+                        { id: 'vision_ai', label: 'Moondream Vision', x: 370, y: 180, w: 120, h: 40, desc: '1.8B Image AI' },
+                        { id: 'ollama', label: 'Ollama Engine', x: 570, y: 70, w: 120, h: 40, desc: 'qwen2.5 / RAG' },
+                        { id: 'daemon', label: 'Async Daemon', x: 570, y: 180, w: 120, h: 40, desc: 'Background Facts' },
+                        { id: 'sse_stream', label: 'SSE Streamer', x: 570, y: 250, w: 120, h: 40, desc: 'Non-blocking Stream' }
+                      ].map(node => (
+                        <g key={node.id} onMouseEnter={() => setHoveredNode(node.id)} onMouseLeave={() => setHoveredNode(null)} className="cursor-pointer">
+                          <rect x={node.x} y={node.y} width={node.w} height={node.h} rx="8"
+                            fill="#FFFFFF" stroke={hoveredNode === node.id ? '#0A84FF' : 'rgba(180,210,230,0.6)'} strokeWidth={hoveredNode === node.id ? 2 : 1.5}
+                            className="transition-all duration-200 shadow-ice-sm dark:fill-slate-900"/>
+                          <text x={node.x + node.w/2} y={node.y + 18} fill="#111827" className="dark:fill-white" fontSize="10.5" fontFamily="Inter" fontWeight="700" textAnchor="middle">{node.label}</text>
+                          <text x={node.x + node.w/2} y={node.y + 30} fill="#94A3B8" fontSize="8" fontFamily="mono" textAnchor="middle">{node.desc}</text>
+                        </g>
+                      ))}
+                    </svg>
+                  )}
+
                   {/* Wallet System Diagram */}
                   {selectedArchProject.id === 'wallet' && (
                     <svg className="w-[780px] h-[340px]" viewBox="0 0 780 340" fill="none">
