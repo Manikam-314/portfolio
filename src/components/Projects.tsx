@@ -641,7 +641,15 @@ export default function Projects() {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 border-b border-[rgba(180,210,230,.3)] dark:border-slate-800 pb-4">
                   <div>
                     <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mb-0.5">Interactive Blueprint</p>
-                    <h4 className="text-[18px] font-extrabold text-gray-950 dark:text-white">Distributed Architecture Flow</h4>
+                    <h4 className="text-[18px] font-extrabold text-gray-950 dark:text-white">
+                      {selectedArchProject.id === 'agenticgpt' 
+                        ? 'Autonomous AI Architecture Flow' 
+                        : selectedArchProject.id === 'collabrix' 
+                        ? 'Real-Time Audio & AI Flow' 
+                        : selectedArchProject.id === 'movieshark' 
+                        ? 'High-Concurrency Seat Lock Flow' 
+                        : 'Distributed Saga Architecture Flow'}
+                    </h4>
                   </div>
 
                   {/* Flow path toggle buttons */}
@@ -913,8 +921,14 @@ export default function Projects() {
                       <Workflow size={16}/>
                     </div>
                     <div>
-                      <h4 className="text-[15px] font-extrabold text-gray-950 dark:text-white tracking-tight">Step-by-Step Transaction Sequence</h4>
-                      <p className="text-[12px] text-slate-400">Execution flow trace across service boundaries</p>
+                      <h4 className="text-[15px] font-extrabold text-gray-950 dark:text-white tracking-tight">
+                        {selectedArchProject.id === 'agenticgpt' 
+                          ? 'Step-by-Step Execution Sequence' 
+                          : selectedArchProject.id === 'collabrix' 
+                          ? 'Step-by-Step AI Processing Sequence' 
+                          : 'Step-by-Step Transaction Sequence'}
+                      </h4>
+                      <p className="text-[12px] text-slate-400">Execution flow trace across system boundaries</p>
                     </div>
                   </div>
                   {expandedFlow === selectedArchProject.id ? <ChevronUp size={18} className="text-slate-400"/> : <ChevronDown size={18} className="text-slate-400"/>}
